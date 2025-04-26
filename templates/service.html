@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Mind Metrics : Mental Health Insights</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+         <!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+
+<!-- Icon Font Stylesheet -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="{{ url_for('static', filename='css/lib/animate/animate.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    </head>
+    <body>
+<!-- Navbar Start -->
+<div class="container-fluid nav-bar">
+    <div class="container">
+        <nav class="navbar navbar-light navbar-expand-lg py-3">
+            <!-- Logo -->
+            <a href="{{ url_for('index') }}" class="navbar-brand">
+                <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="MindMetrics Logo" class="logo-img">
+            </a>
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="{{ url_for('index') }}" class="nav-item nav-link active">Home</a>
+                    <a href="{{ url_for('about') }}" class="nav-item nav-link">About Us</a>
+                    <a href="{{ url_for('service') }}" class="nav-item nav-link">Services</a>
+                    <a href="{{ url_for('timeline') }}" class="nav-item nav-link">Timeline</a>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu bg-light">
+                            <a href="{{ url_for('book') }}" class="dropdown-item">Booking</a>
+                            <a href="{{ url_for('blog') }}" class="dropdown-item">Our Blog</a>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('contact') }}" class="nav-item nav-link">Contact</a>
+                </div>
+
+                <!-- Push Login/Signup Button to Right -->
+                <div class="d-flex ms-auto">
+                    <a href="{{ url_for('login') }}" class="btn login-btn">Login/Signup</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+
+
+        <!-- Hero Start -->
+        <div class="container-fluid bg-light py-6 my-6 mt-0">
+            <div class="container text-center animated bounceInDown">
+                <h1 class="display-1 mb-4">Services</h1>
+                <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-dark" aria-current="page">Services</li>
+                </ol>
+            </div>
+        </div>
+        <!-- Hero End -->
+         <!-- Service Start -->
+        <div class="container-fluid service py-6">
+            <div class="container">
+                <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                    <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Services</small>
+                    <h1 class="display-5 mb-5">What We Offer</h1>
+                </div>
+                <div class="row g-4">
+                   
+                    <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
+                        <div class="bg-light rounded service-item">
+                            <div class="service-content d-flex align-items-center justify-content-center p-4">
+                                <div class="service-content-icon text-center">
+                                    <i class="fas fa-wine-glass-alt fa-7x text-primary mb-4"></i>
+                                    <h4 class="mb-3">Stress Level</h4>
+                                    <p class="mb-4">Stress Level Indicator: Know Your Limits , Monitor Your Stress Levels.</p>
+                                    <a href="#" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
+                        <div class="bg-light rounded service-item">
+                            <div class="service-content d-flex align-items-center justify-content-center p-4">
+                                <div class="service-content-icon text-center">
+                                    <i class="fas fa-walking fa-7x text-primary mb-4"></i>
+                                    <h4 class="mb-3">Real-Time Prediction</h4>
+                                    <p class="mb-4">Personalised Real-Time Mental Health Forecast & Predictive Analysis.</p>
+                                    <a href="#" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
+                        <div class="bg-light rounded service-item">
+                            <div class="service-content d-flex align-items-center justify-content-center p-4">
+                                <div class="service-content-icon text-center">
+                                    <i class="fas fa-wheelchair fa-7x text-primary mb-4"></i>
+                                    <h4 class="mb-3">User Friendly</h4>
+                                    <p class="mb-4">Simplifying Mental Health: User Centric Design , Simple , Intuitive tools</p>
+                                    <a href="#" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
+                        <div class="bg-light rounded service-item">
+                            <div class="service-content d-flex align-items-center justify-content-center p-4">
+                                <div class="service-content-icon text-center">
+                                    <i class="fas fa-utensils fa-7x text-primary mb-4"></i>
+                                    <h4 class="mb-3">Mind Diet</h4>
+                                    <p class="mb-4">Nourish Your Mind: Healthy Eating For Mental Wellness, clarity & Focus.</p>
+                                    <a href="#" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial Start -->
+<div class="container-fluid py-6">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Testimonial</small>
+            <h1 class="display-5 mb-5">What Our Customers Say!</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-1.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Amit Sharma</h4>
+                        <p class="m-0">Software Engineer, Bengaluru</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"This platform helped me balance my work stress. The AI insights are super accurate and practical!"</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-2.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Priya Iyer</h4>
+                        <p class="m-0">Marketing Manager, Mumbai</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-muted"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"Really helpful for tracking stress levels. Would love more personalized suggestions!"</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-3.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Rajesh Verma</h4>
+                        <p class="m-0">Entrepreneur, Delhi</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"Mind Metrics gives clear, easy-to-follow insights. It helped me identify stress triggers and manage them better."</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-4.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Neha Kapoor</h4>
+                        <p class="m-0">Doctor, Pune</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-muted"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"A good tool for stress tracking. Just wish it had more integration with meditation apps!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+       <!-- Footer Start -->
+    <div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row"style="justify-content: center;">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h1 class="text-primary">Mind<span class="text-dark">Metrics</span></h1>
+                        <p class="lh-lg mb-4">Mind Metrics: Empowering you with AI-driven mental health insights to track stress, 
+                            improve well-being, and take control of your mental health journey.</p>
+                        <div class="footer-icon d-flex">
+                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Special Facilities</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>stress meter</a>
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>statistical view</a>
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>predictive analysis</a>
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>decode & rennovate </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Contact Us</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> chatrapati sambhajinagar, Maharshtra. </p>
+                            <p><i class="fa fa-phone-alt text-primary me-2"></i> +91 xxxxx5xxx8x </p>
+                            <p><i class="fas fa-envelope text-primary me-2"></i>ranisoni6298@gmail.com & rushikeshgoreudict@gmail.com</p>
+                            <p><i class="fa fa-clock text-primary me-2"></i> 24/7 Hours Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright bg-dark py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Mind Metrics</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 my-auto text-center text-md-end text-white">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='css/lib/wow/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/counterup/counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/lightbox/js/lightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+
+<!-- Template Javascript -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                // Initialize the owl carousel
+                $(".testimonial-carousel").owlCarousel({
+                    autoplay: true,
+                    smartSpeed: 1000,
+                    margin: 25,
+                    loop: true,
+                    center: true,
+                    dots: false,
+                    nav: true,
+                    navText : [
+                        '<i class="bi bi-chevron-left"></i>',
+                        '<i class="bi bi-chevron-right"></i>'
+                    ],
+                    responsive: {
+                        0:{
+                            items:1
+                        },
+                        768:{
+                            items:2
+                        },
+                        992:{
+                            items:3
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

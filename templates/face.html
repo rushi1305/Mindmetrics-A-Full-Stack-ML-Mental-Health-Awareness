@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindmetrics Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/final.css') }}">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <style>
+    .feeling-list {
+      margin-top: 20px;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 18px;
+    }
+  
+    .feeling-list .feeling {
+      width: 240px;
+      height: 140px;
+      margin-left: 180px;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .feeling-list .feeling:first-child {
+      margin-left: 180px;
+    }
+  
+    .feeling-list .feeling:not(:first-child) {
+      margin-left: 0;
+    }
+  
+    @media (max-width: 768px) {
+      .feeling-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+  
+      .feeling-list .feeling {
+        width: 90%;
+        height: auto;
+        margin-left: 0 !important;
+        padding: 10px;
+      }
+  
+      .feeling-list .feeling:first-child {
+        margin-left: 0 !important;
+      }
+    }
+  
+    .header {
+      margin-top: 60px;
+      padding-left: 30px;
+    }
+  
+    .header .title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 8px;
+    }
+  
+    .header .subtitle {
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+    }
+  
+    .typing-area {
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    .typing-area .typing-form {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .typing-area .input-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 5px;
+      flex-wrap: nowrap;
+    }
+  
+    .typing-input {
+  flex: 1;
+  padding: 10px;
+  min-width: 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 6px #ffffff, 0 0 12px #007bff, 0 0 16px #8e2de2;
+  animation: glowing-input 2s infinite alternate ease-in-out;
+}
+@keyframes glowing-input {
+  0% {
+    box-shadow: 0 0 6px #ffffff, 0 0 12px #007bff, 0 0 16px #8e2de2;
+  }
+  100% {
+    box-shadow: 0 0 4px #ffffff, 0 0 8px #007bff, 0 0 12px #8e2de2;
+  }
+}
+
+    #send-message-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: linear-gradient(135deg, #007bff, #8e2de2);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.5rem;
+      transition: background 0.2s;
+      animation: glowing-shadow 1.5s infinite alternate ease-in-out;
+    }
+  
+    #send-message-button:hover {
+      background: linear-gradient(135deg, #0056b3, #6a11cb);
+    }
+  
+    #send-message-button ion-icon {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+  
+    @keyframes glowing-shadow {
+      0% {
+        box-shadow: 0 0 12px #ffffff, 0 0 22px #007bff, 0 0 30px #8e2de2;
+      }
+      100% {
+        box-shadow: 0 0 18px #ffffff, 0 0 30px #007bff, 0 0 40px #8e2de2;
+      }
+    }
+  
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+  
+    .action-buttons .icon-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #007bff, #8e2de2);
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+  
+    .action-buttons .icon-button:hover {
+      background: linear-gradient(135deg, #0056b3, #6a11cb);
+    }
+  
+    .action-buttons .icon-button ion-icon {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+  
+    @media (max-width: 768px) {
+      .typing-area .input-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+      }
+  
+      .typing-input {
+        font-size: 0.9rem;
+        width: 100%;
+      }
+  
+      #send-message-button {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+      }
+  
+      #send-message-button ion-icon {
+        font-size: 1.2rem;
+      }
+  
+      .action-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="top-bar">
+    <span class="hamburger-icon"><ion-icon name="menu-outline"></ion-icon></span>
+    <div class="top-bar-buttons">
+      <span class="theme-toggle-button icon"><ion-icon name="sunny-outline"></ion-icon></span>
+      <span class="delete-chat-button icon"><ion-icon name="trash-outline"></ion-icon></span>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1 class="title">Hello, there</h1>
+    <h2 class="subtitle">How are you feeling today?</h2>
+  </div>
+
+  <ul class="feeling-list">
+    <li class="feeling bright" data-feeling="bright">
+      <h4 class="text">Happy and delighted today! ☀️</h4>
+      <span class="icon">🌻</span>  
+    </li>
+    <li class="feeling low" data-feeling="low">
+      <h4 class="text">Sad and confused in the moment 🌥️</h4>
+      <span class="icon">🌧️</span>  
+    </li>
+    <li class="feeling flustered" data-feeling="flustered">
+      <h4 class="text">Too much emotions to handle 🍂</h4>
+      <span class="icon">🦋</span>  
+    </li>
+    <li class="feeling okay" data-feeling="okay">
+      <h4 class="text">Just Feeling okay 🌼...Nothing much</h4>
+      <span class="icon">🌸</span>  
+    </li>
+  </ul>
+  <div class="chat-list">
+    <!-- Messages will be added dynamically -->
+  </div>
+  <div class="floating-menu">
+    <a href="{{ url_for('index') }}" class="menu-item home" data-label="Home"><ion-icon name="home-outline"></ion-icon></a>
+    <a href="{{ url_for('index') }}" class="menu-item about" data-label="About"><ion-icon name="information-circle-outline"></ion-icon></a>
+    <a href="{{ url_for('index') }}" class="menu-item timeline" data-label="Timeline"><ion-icon name="time-outline"></ion-icon></a>
+    <a href="{{ url_for('index') }}" class="menu-item contact" data-label="Contact"><ion-icon name="mail-outline"></ion-icon></a>
+  </div>
+  <div class="typing-area">
+    <form class="typing-form">
+      <div class="input-wrapper">
+        <input type="text" class="typing-input" placeholder="Enter your message here..." />
+        <button type="submit" id="send-message-button" class="icon"><ion-icon name="send-outline"></ion-icon></button>
+      </div>
+    </form>
+    <div class="action-buttons">
+      <span class="theme-toggle-button icon"><ion-icon name="sunny-outline"></ion-icon></span>
+      <span class="delete-chat-button icon"><ion-icon name="trash-outline"></ion-icon></span>
+    </div>
+  </div>  
+  <script>
+    // Debug Ionicons and form submission
+    window.addEventListener('load', () => {
+      const sendButton = document.getElementById('send-message-button');
+      const sendIcon = sendButton.querySelector('ion-icon');
+      if (!sendIcon || !sendIcon.isConnected) {
+        sendButton.classList.add('ionicon-failed');
+        console.warn('Ionicons failed to load for send button');
+      } else {
+        console.log('Send button icon loaded successfully');
+      }
+      const typingForm = document.querySelector('.typing-form');
+      if (typingForm) {
+        console.log('Typing form found:', typingForm);
+        typingForm.addEventListener('submit', (e) => {
+          console.log('Form submitted');
+        });
+      } else {
+        console.error('Typing form not found');
+      }
+    });
+  </script>
+  <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+</body>
+</html>

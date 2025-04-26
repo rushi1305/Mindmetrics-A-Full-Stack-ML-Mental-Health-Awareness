@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Mind Metrics : Mental Health Insights</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+        <!-- Google Web Fonts -->
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+<!-- Bootstrap JS (Required for Navbar Collapse) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Icon Font Stylesheet -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Libraries Stylesheet -->
+<link href="{{ url_for('static', filename='css/lib/animate/animate.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet">
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<!-- jQuery (Required for Owl Carousel) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- Customized Bootstrap Stylesheet -->
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Navbar Start -->
+<div class="container-fluid nav-bar">
+  <div class="container">
+      <nav class="navbar navbar-light navbar-expand-lg py-3">
+          <!-- Logo -->
+          <a href="{{ url_for('index') }}" class="navbar-brand">
+              <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="MindMetrics Logo" class="logo-img">
+          </a>
+          <!-- Toggler Button -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="fa fa-bars text-primary"></span>
+          </button>
+          <!-- Navbar Items -->
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav mx-auto">
+                  <a href="{{ url_for('index') }}" class="nav-item nav-link active">Home</a>
+                  <a href="{{ url_for('about') }}" class="nav-item nav-link">About Us</a>
+                  <a href="{{ url_for('service') }}" class="nav-item nav-link">Services</a>
+                  <a href="{{ url_for('timeline') }}" class="nav-item nav-link">Timeline</a>
+
+                  <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                      <div class="dropdown-menu bg-light">
+                          <a href="{{ url_for('book') }}" class="dropdown-item">Booking</a>
+                          <a href="{{ url_for('blog') }}" class="dropdown-item">Our Blog</a>
+                      </div>
+                  </div>
+                  <a href="{{ url_for('contact') }}" class="nav-item nav-link">Contact</a>
+              </div>
+              <!-- Push Login/Signup Button to Right -->
+              <div class="d-flex ms-auto">
+                  <a href="{{ url_for('login') }}" class="btn login-btn">Login/Signup</a>
+              </div>
+          </div>
+      </nav>
+  </div>
+</div>
+<!-- Navbar End -->
+<div class="heading-container">
+  <h1 class="project-heading">MindMetrics : Project Timeline</h1>
+</div>
+<style>
+  .timeline__event__content {
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  .timeline__event:nth-child(odd) .timeline__event__content {
+    background: linear-gradient(to right, rgba(86, 49, 109, 0.36), rgba(221, 160, 221, 0.2), rgba(232, 246, 246, 0.498));
+}
+
+.timeline__event:nth-child(even) .timeline__event__content {
+    background: linear-gradient(to right, rgba(241, 220, 220, 0.1), rgba(204, 128, 123, 0.216), rgba(221, 125, 197, 0.236), rgba(206, 14, 46, 0.479));
+}
+
+  .timeline__event__content:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, rgba(223, 186, 255, 0.2), rgba(255, 223, 186, 0.2), rgba(186, 223, 255, 0.2));
+  }
+  .timeline__event {
+    margin-bottom: 20px;
+  }
+  .timeline__event__icon {
+    font-size: 2em;
+    text-shadow: 4px 0px 6px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+<div class="timeline"> 
+  <div class="timeline__event animated fadeInUp delay-3s timeline__event--type1">
+    <div class="timeline__event__icon">❤️</div>
+    <div class="timeline__event__date">Step 1</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Data Collection</div>
+      <div class="timeline__event__description">
+        <p>Gather mental health data from Kaggle for depression prediction. Collect facial emotion datasets via APIs. Ensure data diversity for accurate model training. Apply anonymization techniques to protect privacy. Organize data into structured formats for easy access.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+    <div class="timeline__event__icon">⚙️</div>
+    <div class="timeline__event__date">Step 2</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Data Preprocessing</div>
+      <div class="timeline__event__description">
+        <p>Handle missing values using imputation techniques. Perform text tokenization, lemmatization, and stop-word removal for textual data. Normalize numerical values to ensure consistency. Apply feature scaling to enhance model learning. Balance the dataset to avoid bias.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
+    <div class="timeline__event__icon">📊</div>
+    <div class="timeline__event__date">Step 3</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Exploratory Data Analysis (EDA)</div>
+      <div class="timeline__event__description">
+        <p>Analyze data distributions using histograms and box plots. Identify correlations between features and depression indicators. Generate word clouds for textual analysis. Visualize patterns using scatter plots and heatmaps. Remove outliers to improve data quality.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp timeline__event--type1">
+    <div class="timeline__event__icon">🛠️</div>
+    <div class="timeline__event__date">Step 4</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Feature Engineering</div>
+      <div class="timeline__event__description">
+        <p>Extract linguistic, behavioral, and contextual features. Use TF-IDF and word embeddings for text-based inputs. Generate sentiment scores from textual data. Identify key time-based trends in depression symptoms. Select relevant features to improve model performance.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-3s timeline__event--type1">
+    <div class="timeline__event__icon">🤖</div>
+    <div class="timeline__event__date">Step 5</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">RNN Model Training</div>
+      <div class="timeline__event__description">
+        <p>Build an RNN model with LSTMs/GRUs for depression prediction. Train the model on preprocessed data. Optimize using dropout layers to prevent overfitting. Experiment with different learning rates for stability. Validate performance with test data regularly.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+    <div class="timeline__event__icon">🎯</div>
+    <div class="timeline__event__date">Step 6</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Model Evaluation & Hyperparameter Tuning</div>
+      <div class="timeline__event__description">
+        <p>Evaluate model performance using accuracy, precision, recall, and F1-score. Fine-tune hyperparameters like batch size and optimizer settings. Perform cross-validation for robustness. Compare results with baseline models. Adjust model complexity to improve generalization.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
+    <div class="timeline__event__icon">🔗</div>
+    <div class="timeline__event__date">Step 7</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Model Integration</div>
+      <div class="timeline__event__description">
+        <p>Convert the trained model into a deployable format. Develop Flask APIs to facilitate interaction with the frontend. Ensure real-time predictions are smooth and responsive. Implement error-handling mechanisms for API failures. Secure API endpoints against unauthorized access.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp timeline__event--type1">
+    <div class="timeline__event__icon">🔍</div>
+    <div class="timeline__event__date">Step 8</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">User Testing</div>
+      <div class="timeline__event__description">
+        <p>Conduct user testing to collect feedback on the model's performance. Identify usability issues and gather suggestions for improvement. Monitor user interactions to ensure the system meets user needs. Make necessary adjustments based on user feedback.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-3s timeline__event--type2">
+    <div class="timeline__event__icon">📈</div>
+    <div class="timeline__event__date">Step 9</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Performance Monitoring</div>
+      <div class="timeline__event__description">
+        <p>Set up monitoring tools to track the model's performance in real-time. Analyze the model's predictions to identify any degradation in accuracy. Implement alerts for significant drops in performance. Continuously update the model with new data to maintain accuracy.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-2s timeline__event--type3">
+    <div class="timeline__event__icon">🔧</div>
+    <div class="timeline__event__date">Step 10</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">System Maintenance</div>
+      <div class="timeline__event__description">
+        <p>Regularly maintain the system to ensure smooth operation. Update software dependencies and libraries. Perform routine checks to identify and fix any bugs. Ensure the system's security measures are up-to-date. Document all maintenance activities for future reference.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-1s timeline__event--type1">
+    <div class="timeline__event__icon">📂</div>
+    <div class="timeline__event__date">Step 11</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Data Backup</div>
+      <div class="timeline__event__description">
+        <p>Implement a robust data backup strategy to protect against data loss. Schedule regular backups of the system's data. Store backups in multiple locations for redundancy. Ensure backups are encrypted for security. Test backup restoration processes regularly to ensure reliability.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__event animated fadeInUp delay-3s timeline__event--type2">
+    <div class="timeline__event__icon">🚀</div>
+    <div class="timeline__event__date">Step 12</div>
+    <div class="timeline__event__content">
+      <div class="timeline__event__title">Final Deployment</div>
+      <div class="timeline__event__description">
+        <p>Deploy the final model to the production environment. Ensure all components are correctly configured. Monitor the deployment process for any issues. Validate the model's performance in the live environment. Provide training and documentation to end-users for smooth adoption.</p>
+      </div>
+    </div>
+  </div>
+</div>    
+    </body>
+</html>

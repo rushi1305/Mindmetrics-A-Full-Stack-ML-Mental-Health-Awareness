@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mind Metrics : Mental Health Insights</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Mental Health, Depression, Stress Analysis" name="keywords">
+    <meta content="Mind Metrics - Decode Your Mind, Define Your Peace" name="description">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+    
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+    <!-- Bootstrap JS (Required for Navbar Collapse) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+        <!-- Libraries Stylesheet -->
+        <link href="{{ url_for('static', filename='css/lib/animate/animate.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet">
+    
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
+        <!-- jQuery (Required for Owl Carousel) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <!-- Owl Carousel JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <!-- Additional Responsive Styles -->
+    <style>
+        /* Global responsive adjustments */
+        @media (min-width: 1200px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        transition: .5s;
+        opacity: 0;
+    }
+    
+    .navbar .nav-item:hover .dropdown-menu {
+        transform: rotateX(0deg);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.login-btn {
+    font-weight: bold;
+}
+.dropdown .dropdown-menu a:hover {
+    background: var(--bs-primary);
+    color: var(--bs-white);
+}
+
+#searchModal .modal-content {
+    background-color: rgba(255, 255, 255, .95);
+}
+        @media (max-width: 991px) {
+            .display-1 {
+                font-size: 2.5rem;
+            }
+            .display-5 {
+                font-size: 1.8rem;
+            }
+            h1.display-5 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .display-1 {
+                font-size: 2rem;
+            }
+            .py-6 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            .my-6 {
+                margin-top: 3rem !important;
+                margin-bottom: 3rem !important;
+            }
+        }
+        .login-btn {
+    margin-left: auto !important; /* Pushes the button to the right */
+    padding: 12px 24px !important; /* Adjust padding for better appearance */
+}
+/* Hero section responsive */
+        @media (max-width: 991px) {
+            .container-fluid.py-6.my-6.mt-0 {
+                height: auto !important;
+                min-height: 70vh;
+            }
+        }
+        
+        @media (max-width: 867px) {
+            .container-fluid.py-6.my-6.mt-0 {
+                min-height: 60vh;
+            }
+            #cubecv {
+                width: 100px !important;
+                height: 100px !important;
+            }
+        }
+        /* Service items responsive */
+        @media (max-width: 767px) {
+            .service-item {
+                margin-bottom: 1rem;
+            }
+            .service-content-icon i {
+                font-size: 4em !important;
+            }
+        }
+        
+        /* Booking form responsive */
+        @media (max-width: 767px) {
+            .form .btn {
+                width: 100%;
+            }
+        }
+        
+        /* Team section responsive */
+        @media (max-width: 767px) {
+            .team-item {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        /* Testimonial responsive */
+        @media (max-width: 767px) {
+            .testimonial-item {
+                padding: 1rem;
+            }
+            .testimonial-item .fa-quote-right {
+                font-size: 1.5em !important;
+            }
+        }
+        
+        /* Blog responsive */
+        @media (max-width: 767px) {
+            .blog-item {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        /* Footer responsive */
+        @media (max-width: 767px) {
+            .footer-item {
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            .footer-item .d-flex {
+                justify-content: center;
+            }
+            .footer-icon {
+                justify-content: center;
+            }
+        }
+        /* Fix Navbar Toggle Icon */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 20px;
+}
+/* Fix Dropdown Visibility */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-item {
+        margin-bottom: 10px;
+    }
+
+    /* Login Button Styling */
+    .login-btn {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+}
+</style>
+    <!-- jQuery (Required) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- Initialize Owl Carousel -->
+<script>
+    $(document).ready(function(){
+        $(".blog-carousel").owlCarousel({
+            loop:true,
+            margin:20,
+            nav:true,
+            dots:true,
+            autoplay:true,
+            autoplayTimeout:4000,
+            responsive:{
+                0:{ items:1 },
+                768:{ items:2 },
+                1024:{ items:3 }
+            }
+        });
+    });
+</script>
+
+</head>
+<body>
+<!-- Navbar Start -->
+<div class="container-fluid nav-bar">
+    <div class="container">
+        <nav class="navbar navbar-light navbar-expand-lg py-3">
+            <!-- Logo -->
+            <a href="{{ url_for('index') }}" class="navbar-brand">
+                <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="MindMetrics Logo" class="logo-img">
+            </a>
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+<!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="{{ url_for('index') }}" class="nav-item nav-link active">Home</a>
+                    <a href="{{ url_for('about') }}" class="nav-item nav-link">About Us</a>
+                    <a href="{{ url_for('service') }}" class="nav-item nav-link">Services</a>
+                    <a href="{{ url_for('timeline') }}" class="nav-item nav-link">Timeline</a>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu bg-light">
+                            <a href="{{ url_for('book') }}" class="dropdown-item">Booking</a>
+                            <a href="{{ url_for('blog') }}" class="dropdown-item">Our Blog</a>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('contact') }}" class="nav-item nav-link">Contact</a>
+                </div>
+                <!-- Push Login/Signup Button to Right -->
+                <div class="d-flex ms-auto">
+                    <a href="{{ url_for('login') }}" class="btn login-btn">Login/Signup</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+<!-- Modal Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Search End -->
+<div class="container-fluid py-6 my-6 mt-0" style="
+position: relative;
+margin: 0 auto;
+top: 0;
+left: 0;
+width: 100%;
+height: 90vh;
+background-image: url('{{ url_for('static', filename='images/6.jpeg') }}');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+overflow-x: hidden;
+">
+    <div class="container h-100">
+        <div class="row g-2 align-items-center justify-content-center h-100">
+            <div class="col-lg-7 col-md-12 text-center text-lg-start">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4 animated bounceInDown">Welcome to Mind Metrics</small>
+                <h1 class="display-1 mb-4 animated bounceInDown" style="color: #e0fafa; text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.246);">
+                    Try <span class="text-primary mind-metrics">Mind Metrics</span> Decode Your Mind, Define Your Peace!
+                </h1>
+                <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                    <a href="{{ url_for('face') }}" class="btn custom-btn-1 animated bounceInLeft">Decode Personality</a>
+                    <a href="{{ url_for('quesnew') }}" class="btn custom-btn-2 animated bounceInLeft">Test Mind Wellness</a>
+                </div>                
+            </div> 
+            <div class="col-lg-5 col-md-12 d-flex justify-content-center justify-content-lg-end mt-4 mt-lg-0">
+                <canvas id="cubecv" width="330" height="330"></canvas>
+            </div>
+        </div>
+    </div>
+    <style>
+       .owl-nav {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important; /* Space between buttons */
+    margin-top: 20px !important;
+}
+
+.owl-prev, .owl-next {
+    width: 140px !important; /* Wider for a bold look */
+    height: 50px !important; /* Adjusted height */
+    font-size: 22px !important; /* Slightly larger text */
+    font-weight: bold !important;
+    border-radius: 30px !important; /* Rounded edges */
+    border: 5px solid white !important; /* Thick white border */
+    padding: 10px 0px !important; /* Adjusted padding for text centering */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    transition: all 0.3s ease-in-out !important;
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.8) !important; /* White glowing shadow */
+}
+
+/* Different colors for each button */
+.owl-prev {
+    background: #ff6b6b !important; /* Soft Red */
+    color: white !important;
+}
+
+.owl-next {
+    background: #6bafff !important; /* Soft Blue */
+    color: white !important;
+}
+
+/* Hover Effects */
+.owl-prev:hover {
+    background: white !important;
+    color: #ff6b6b !important;
+    border-color: #ff6b6b !important;
+    box-shadow: 0px 0px 30px rgba(255, 107, 107, 1) !important; /* Strong red glow */
+}
+
+.owl-next:hover {
+    background: white !important;
+    color: #6bafff !important;
+    border-color: #6bafff !important;
+    box-shadow: 0px 0px 30px rgba(107, 175, 255, 1) !important; /* Strong blue glow */
+}
+        .mind-metrics {
+            background: linear-gradient(45deg, #f34a50, #eea691, #f2e58f, #f594d9, #a284e8, #ee93d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .custom-btn-1, .custom-btn-2 {
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.796);
+    padding: 0.85rem 2.2rem; /* Slightly reduced padding */
+    font-size: 1.15rem; /* Reduced font size for better fit */
+    border-radius: 50px;
+    width: 225px; /* Increased width for longer text */
+    text-align: center;
+    margin-right: -25px; /* Reduced right margin */
+}
+    .custom-btn-1 {
+        background: linear-gradient(45deg, #474b48, #1e3c72, #2a5298, #6baeed, #fbfbfb);
+        color: #fff;
+    }
+
+    .custom-btn-1:hover {
+        background: linear-gradient(45deg, #f5f8f6, #91bff0, #2a5298, #1e3c72);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .custom-btn-2 {
+        background: linear-gradient(45deg, #f2ec89, #f3ad78, #ff6f61, #ff3f04,#980d0d);
+        color: #fff;
+    }
+
+    .custom-btn-2:hover {
+        background: linear-gradient(45deg, #ff8c42, #ff6f61, #feb47b, #ff7e5f);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+    </style>
+    </div>
+    <!-- Hero End -->
+<!-- About Start -->
+<div class="container-fluid py-6">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
+                <img src="{{ url_for('static', filename='images/man sitting depr.jpg') }}" class="img-fluid rounded w-100" alt="Depression illustration">
+            </div>
+            <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">About Us</small>
+                <h1 class="display-5 mb-4">Why Depression?</h1>
+                <p class="mb-4">Depression is more than just feeling sad or having a bad day, it's a serious mental health condition that affects how you think, feel, and act. It can impact your personal relationships, work, and overall quality of life.</p>
+                <div class="row g-4 text-dark mb-5">
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>Personalized Mental Health Insights
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>24/7 Emotional Support
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>Expert Guidance at Your Fingertips
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>Real-Time Progress Tracking
+                    </div>
+                </div>
+                <a href="{{ url_for('about') }}" class="btn btn-primary py-3 px-5 rounded-pill">About Us<i class="fas fa-arrow-right ps-2"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+  <!-- Fact Start-->
+<div class="container-fluid faqt py-6" style="background: linear-gradient(to right, #8ca4d9, rgb(245, 170, 182), rgb(239, 182, 75));">
+    <div class="container">
+        <div class="row g-4 align-items-center justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
+                <div class="faqt-item bg-primary rounded p-4 text-center" style="border: 5px solid rgb(248, 247, 242); box-shadow: 0 7px 10px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);">
+                    <i class="fas fa-user-alt fa-4x mb-4 text-white"></i>
+                    <h1 class="display-4 fw-bold counter" data-target="689">0</h1>
+                    <p class="text-dark text-uppercase fw-bold mb-0">Users Analyzed</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
+                <div class="faqt-item bg-primary rounded p-4 text-center my-3 my-md-0" style="border: 5px solid white; box-shadow: 0 7px 10px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);">
+                    <i class="fas fa-lightbulb fa-4x mb-4 text-white"></i>
+                    <h1 class="display-4 fw-bold counter" data-target="107">0</h1>
+                    <p class="text-dark text-uppercase fw-bold mb-0">Insights Delivered</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
+                <div class="faqt-item bg-primary rounded p-4 text-center" style="border: 5px solid rgb(255, 255, 255); box-shadow: 0 7px 10px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);">
+                    <i class="fas fa-heart fa-4x mb-4 text-white"></i>
+                    <h1 class="display-4 fw-bold counter" data-target="253">0</h1>
+                    <p class="text-dark text-uppercase fw-bold mb-0">Successful Interventions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact End -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const counters = document.querySelectorAll('.counter');
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const increment = target / 500; // Adjust this value to control the speed
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        };
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    });
+</script>
+    <!-- Fact End -->
+ <!-- Service Start -->
+<div class="container-fluid service py-6">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Services</small>
+            <h1 class="display-5 mb-5">What We Offer</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
+                <div class="bg-light rounded service-item h-100">
+                    <div class="service-content d-flex align-items-center justify-content-center p-4">
+                        <div class="service-content-icon text-center">
+                            <i class="fas fa-wine-glass-alt fa-7x text-primary mb-4"></i>
+                            <h4 class="mb-3">Stress Level</h4>
+                            <p class="mb-4">Stress Level Indicator: Know Your Limits , Monitor Your Stress Levels.</p>
+                            <a href="{{ url_for('timeline') }}" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
+                <div class="bg-light rounded service-item h-100">
+                    <div class="service-content d-flex align-items-center justify-content-center p-4">
+                        <div class="service-content-icon text-center">
+                            <i class="fas fa-walking fa-7x text-primary mb-4"></i>
+                            <h4 class="mb-3">Real-Time Prediction</h4>
+                            <p class="mb-4">Personalised Real-Time Mental Health Forecast & Predictive Analysis.</p>
+                            <a href="{{ url_for('timeline') }}" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
+                <div class="bg-light rounded service-item h-100">
+                    <div class="service-content d-flex align-items-center justify-content-center p-4">
+                        <div class="service-content-icon text-center">
+                            <i class="fas fa-wheelchair fa-7x text-primary mb-4"></i>
+                            <h4 class="mb-3">User Friendly</h4>
+                            <p class="mb-4">Simplifying Mental Health: User Centric Design , Simple , Intuitive tools</p>
+                            <a href="{{ url_for('timeline') }}" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
+                <div class="bg-light rounded service-item h-100">
+                    <div class="service-content d-flex align-items-center justify-content-center p-4">
+                        <div class="service-content-icon text-center">
+                            <i class="fas fa-utensils fa-7x text-primary mb-4"></i>
+                            <h4 class="mb-3">Mind Diet</h4>
+                            <p class="mb-4">Nourish Your Mind: Healthy Eating For Mental Wellness, clarity & Focus.</p>
+                            <a href="{{ url_for('timeline') }}" class="btn btn-primary px-4 py-2 rounded-pill">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+    <!-- Project Timeline Heading -->
+<div class="text-center wow bounceInUp my-5" data-wow-delay="0.1s">
+    <h1 class="display-5 mb-5">Project Timeline</h1>
+</div>
+<!-- Events Section with Horizontal Gradient -->
+<div class="container-fluid event py-6" style="background: linear-gradient(to right, #f6e183a4, #f3ace28d, #e77ade87,#8cdfef78, #557fe176);">
+    <div class="container">
+        <div class="tab-class text-center">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
+                        <img src="{{ url_for('static', filename='images/pt2.jpg') }}" class="img-fluid rounded w-100" alt="Timeline illustration">
+                    </div>
+                    <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s">
+                        <h2 class="display-5 mb-4">"Curious About Our Project's Journey?"</h2>
+                        <p class="mb-4" style="color: #3d4141;">Explore the journey of Mind Metrics! From ideation to execution, track the milestones, breakthroughs, and progress of our project.
+                            Click below to dive deeper into our complete timeline and witness how Mind Metrics evolved step by step.
+                        </p>
+                        <a href="{{ url_for('timeline') }}" class="btn btn-primary py-3 px-5 rounded-pill">View Full Timeline<i class="fas fa-arrow-right ps-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Events End -->
+
+    <!-- Book Us Start -->
+    <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-0 justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="border-bottom border-top border-primary bg-light py-5 px-4">
+                        <div class="text-center">
+                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Book Us</small>
+                            <h1 class="display-5 mb-5">Consult With Mental Health Professional</h1>
+                        </div>
+                        <div class="row g-4 form">
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" aria-label="Default select example">
+                                    <option selected>Select State</option>
+                                    <option value="1">Mharashtra</option>
+                                    <option value="2">madhya pradesh</option>
+                                    <option value="3">J & K</option>
+                                    <option value="4">Assam</option>
+                                    <option value="5">Jharkhand</option>
+                                    <option value="6">Chhattisgarh</option>
+                                    <option value="7">Delhi</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" aria-label="Default select example">
+                                    <option selected>Select City</option>
+                                    <option value="1">Depend On State</option>
+                                    <option value="2">Mumbai</option>
+                                    <option value="3">Chatrapati Sambhajinagar</option>
+                                    <option value="4">Satna</option>
+                                    <option value="5">Indore</option>
+                                    <option value="6">Pune</option>
+                                    <option value="7">Raipur</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" aria-label="Default select example">
+                                    <option selected>Select Palace</option>
+                                    <option value="1">Depend On Country</option>
+                                    <option value="2">UK</option>
+                                    <option value="3">India</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" aria-label="Default select example">
+                                    <option selected>Time Slot</option>
+                                    <option value="1">Morning</option>
+                                    <option value="2">Afternoon</option>
+                                    <option value="3">Evening</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="Hobbies" class="form-control border-primary p-2" placeholder="Your Hobbies">
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="mobile" class="form-control border-primary p-2" placeholder="Your Contact No.">
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="date" class="form-control border-primary p-2" placeholder="Select Date">
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="email" class="form-control border-primary p-2" placeholder="Enter Your Email">
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Submit Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Book Us End -->
+ <!-- Team Section Start -->
+<div class="container-fluid team py-5" style="background: linear-gradient(135deg, #FFD3A5, #FFAAA6, #D4A5A5, #B5A5D4, #5c5bad); margin-top: -20px; margin-bottom: -20px;">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Team</small>
+            <h1 class="display-5 fw-bold mb-4 text-gradient">Meet the Minds Behind the Magic</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Rani Soni - Backend Developer & Founder -->
+            <div class="col-lg-5 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item rounded shadow-lg overflow-hidden position-relative">
+                    <div class="team-img">
+                        <img class="img-fluid w-100" style="height: 290px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;" src="{{ url_for('static', filename='images/raniji.png') }}" alt="Rani Soni">
+                    </div>
+                    <div class="team-content text-center py-3 bg-dark rounded-bottom">
+                        <h4 class="text-primary fw-bold">Rani Soni</h4>
+                        <p class="fw-bold text-uppercase mb-2" style="background: linear-gradient(to right, crimson, orange); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                             Founder | Backend Engineer | AI/ML Developer 
+                        </p>
+                        <small class="text-light fst-italic">
+                            The mastermind behind the architecture and intelligence. Blending clean backend logic with powerful ML to bring smart solutions to life.
+                        </small>
+                    </div>
+                    <div class="team-overlay position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center px-3 text-center">
+                        <p class="text-white">
+                            ✨ "Transforming data into decisions — from backend pipelines to machine learning models.  
+                            Every API, algorithm, and prediction is built with intent and precision. 🤖" ✨  
+                        </p>
+                        <p class="text-white fw-bold">
+                            🔍 Engineering logic, automating intelligence, and making technology feel like magic. 🚀
+                        </p>
+                    </div>                    
+                    <div class="team-icon d-flex justify-content-center pb-3">
+                        <a class="btn btn-outline-primary btn-md-square rounded-circle mx-1 social-hover" href="https://www.linkedin.com/in/rani-soni/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary btn-md-square rounded-circle mx-1 social-hover" href="https://www.linkedin.com/in/rani-soni/"><i class="fab fa-github"></i></a>
+                        <a class="btn btn-outline-primary btn-md-square rounded-circle mx-1 social-hover" href="https://www.linkedin.com/in/rani-soni/"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Rushikesh Gore - Frontend Developer -->
+            <div class="col-lg-5 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item rounded shadow-lg overflow-hidden position-relative">
+                    <div class="team-img">
+                        <img class="img-fluid w-100" style="height: 290px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;" src="{{ url_for('static', filename='images/rushi.png') }}" alt="Rushikesh Gore">
+                    </div>
+                    <div class="team-content text-center py-3 bg-dark rounded-bottom">
+                        <h4 class="text-primary fw-bold">Rushikesh Gore</h4>
+                        <p class="fw-bold text-uppercase mb-2" style="background: linear-gradient(to right, indigo, violet); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                             Full Stack Contributor | Testing Lead | UI/UX Specialist 
+                        </p>
+                        <small class="text-light fst-italic">
+                            The visionary behind the sleek interface and robust user testing workflows. Blending creativity with precision,He makes every screen stunning, seamless, and dependable.
+                        </small>
+                    </div>
+                    <div class="team-overlay position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center px-3 text-center">
+                        <p class="text-white">
+                            💡 "Designing experiences that feel as good as they look — and rigorously tested to perform flawlessly.  
+                            From mockups to modules, I craft, test, and refine every element with care." ✨
+                        </p>
+                        <p class="text-white fw-bold">
+                            💪 Turning vision into reality with a perfect balance of design, development, and quality assurance. 🔍
+                        </p>
+                    </div>                    
+                    <div class="team-icon d-flex justify-content-center pb-3">
+                        <a class="btn btn-outline-primary btn-md-square rounded-circle mx-1 social-hover" href="https://www.linkedin.com/in/rushikeshgore98/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary btn-md-square rounded-circle mx-1 social-hover" href="https://www.linkedin.com/in/rushikeshgore98/"><i class="fab fa-github"></i></a>
+                        <a class="btn btn-outline-primary btn-md-square rounded-circle mx-1 social-hover" href="https://www.linkedin.com/in/rushikeshgore98/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team Section End -->
+
+<!-- Custom CSS for Styling -->
+<style>
+    .blog-item img {
+    width: 100% !important;
+    height: 250px !important; /* Set uniform height */
+    object-fit: cover !important; /* Crop to fill the area */
+    border-radius: 10px !important; /* Keep a clean, uniform look */
+}
+
+    .team-item {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        border-radius: 15px;
+        background: #ffffff;
+    }
+    .team-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .team-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.85);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        text-align: center;
+        padding: 20px;
+    }
+    .team-item:hover .team-overlay {
+        opacity: 1;
+    }
+    .social-hover {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .social-hover:hover {
+        transform: scale(1.2);
+        box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.5);
+    }
+    .text-gradient {
+        background: linear-gradient(45deg, #ef0139, #2c2a29);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+<!-- Testimonial Start -->
+<div class="container-fluid py-6">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Testimonial</small>
+            <h1 class="display-5 mb-5">What Our Customers Say!</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-1.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Amit Sharma</h4>
+                        <p class="m-0">Software Engineer, Bengaluru</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"This platform helped me balance my work stress. The AI insights are super accurate and practical!"</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-2.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Priya Iyer</h4>
+                        <p class="m-0">Marketing Manager, Mumbai</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-muted"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"Really helpful for tracking stress levels. Would love more personalized suggestions!"</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-3.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Rajesh Verma</h4>
+                        <p class="m-0">Entrepreneur, Delhi</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"Mind Metrics gives clear, easy-to-follow insights. It helped me identify stress triggers and manage them better."</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-item rounded bg-light p-4">
+                <div class="d-flex mb-3">
+                    <img src="{{ url_for('static', filename='images/testimonial-4.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" style="width: 60px; height: 60px;" alt="testimonial">
+                    <div class="position-absolute" style="top: 15px; right: 20px;">
+                        <i class="fa fa-quote-right fa-2x"></i>
+                    </div>
+                    <div class="ps-3 my-auto">
+                        <h4 class="mb-0">Neha Kapoor</h4>
+                        <p class="m-0">Doctor, Pune</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="d-flex">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-muted"></i>
+                    </div>
+                    <p class="fs-5 m-0 pt-3">"A good tool for stress tracking. Just wish it had more integration with meditation apps!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+<!-- Blog Start -->
+<div class="container-fluid blog py-6" style="background: linear-gradient(135deg, #4d225ecd, #39369288, #ee95c1a5, #f11bb8a8, #d53061); margin-top: -30px; margin-bottom: -160px;">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Blog</small>
+        </div>
+        <div class="owl-carousel owl-theme blog-carousel">
+            <!-- Blog Items -->
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog1.jpg') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">22</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">New Study Links Gut Health to Depression</a>
+                </div>
+            </div>
+
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog2.jpg') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">20</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">AI Detects Early Signs of Depression with 92% Accuracy</a>
+                </div>
+            </div>
+
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog3.jpg') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">18</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">Regular Meditation Reduces Depression by 40%, Study Finds</a>
+                </div>
+            </div>
+
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog4.jpg') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">15</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">Is Social Media a Major Cause of Anxiety and Depression?</a>
+                </div>
+            </div>
+
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog5.jpg') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">12</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">New Therapy Shows Promise for Treatment-Resistant Depression</a>
+                </div>
+            </div>
+
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog6.jpg') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">10</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">Exercise vs. Antidepressants: Which Works Best?</a>
+                </div>
+            </div>
+
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog7.jpg') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">08</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">Deep Brain Stimulation: The Future of Depression Treatment?</a>
+                </div>
+            </div>
+
+            <div class="blog-item">
+                <div class="overflow-hidden rounded">
+                    <img src="{{ url_for('static', filename='images/blog8.png') }}" class="img-fluid w-100 fixed-height" alt="Blog image">
+                </div>
+                <div class="blog-content mx-4 d-flex rounded bg-light">
+                    <div class="text-dark bg-primary rounded-start">
+                        <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                            <p class="fw-bold mb-0">05</p>
+                            <p class="fw-bold mb-0">Mar</p>
+                            <p class="fw-bold mb-0">2025</p>
+                        </div>
+                    </div>
+                    <a href="#" class="h5 lh-base my-auto h-100 p-3">Can a High-Sugar Diet Increase Depression Risk?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row"style="justify-content: center;">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h1 class="text-primary">Mind<span class="text-dark">Metrics</span></h1>
+                        <p class="lh-lg mb-4">Mind Metrics: Empowering you with AI-driven mental health insights to track stress, 
+                            improve well-being, and take control of your mental health journey.</p>
+                        <div class="footer-icon d-flex">
+                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Special Facilities</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>stress meter</a>
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>statistical view</a>
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>predictive analysis</a>
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>decode & rennovate </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Contact Us</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> chatrapati sambhajinagar, Maharshtra. </p>
+                            <p><i class="fa fa-phone-alt text-primary me-2"></i> +91 xxxxx5xxx8x </p>
+                            <p><i class="fas fa-envelope text-primary me-2"></i>ranisoni6298@gmail.com & rushikeshgoreudict@gmail.com</p>
+                            <p><i class="fa fa-clock text-primary me-2"></i> 24/7 Hours Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Mind Metrics</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 my-auto text-center text-md-end text-white">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='css/lib/wow/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/counterup/counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/lightbox/js/lightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='css/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+
+<!-- Template Javascript -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Fix for testimonial carousel -->
+    <script>
+        $(document).ready(function(){
+            // Initialize the owl carousel
+            $(".testimonial-carousel").owlCarousel({
+                autoplay: true,
+                smartSpeed: 1000,
+                margin: 25,
+                loop: true,
+                center: true,
+                dots: false,
+                nav: true,
+                navText : [
+                    '<i class="bi bi-chevron-left"></i>',
+                    '<i class="bi bi-chevron-right"></i>'
+                ],
+                responsive: {
+                    0:{
+                        items:1
+                    },
+                    768:{
+                        items:2
+                    },
+                    992:{
+                        items:3
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

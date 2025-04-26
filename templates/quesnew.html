@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Let's decode Depression</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/quesnew.css') }}">
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+  <!-- Icon Font Stylesheet -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Libraries Stylesheet -->
+  <link href="{{ url_for('static', filename='css/lib/animate/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet">
+</head>
+<style>
+  .result-box {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    top: 41%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    width: 98%;
+    max-width: 900px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  .form-card {
+    position: relative;
+    overflow: visible;
+    padding: 15px;
+  }
+  .fs-title, .steps {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+    margin-left: 60px;
+  }
+  .image-container {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  input.error, select.error {
+    border: 2px solid #d9534f;
+    background-color: #fff5f5;
+  }
+  .container-fluid.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .navbar {
+    width: 100%;
+    padding: 10px 0;
+  }
+  .content-wrapper {
+    padding-top: 80px;
+  }
+  #msform {
+    min-height: 100%;
+  }
+  fieldset {
+    height: auto;
+  }
+  .container-fluid {
+    padding-bottom: 40px;
+  }
+  #improvementBox {
+    padding: 10px;
+    line-height: 1.6;
+  }
+  #improvementBox h4 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  #improvementBox ul,
+  #improvementBox p {
+    text-align: left;
+  }
+</style>
+<body>
+  <div class="stars"></div>
+  <div class="content-wrapper">
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar">
+      <div class="container">
+        <nav class="navbar navbar-light navbar-expand-lg py-3">
+          <a href="/" class="navbar-brand">
+            <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="MindMetrics Logo" class="logo-img">
+          </a>
+          <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars text-primary"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav mx-auto">
+              <a href="/" class="nav-item nav-link active">Home</a>
+              <a href="/about" class="nav-item nav-link">About</a>
+              <a href="/services" class="nav-item nav-link">Services</a>
+              <a href="/timeline" class="nav-item nav-link">Timeline</a>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu bg-light">
+                  <a href="/booking" class="dropdown-item">Booking</a>
+                  <a href="/blog" class="dropdown-item">Our Blog</a>
+                  <a href="/404" class="dropdown-item">404 Page</a>
+                </div>
+              </div>
+              <a href="/contact" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="/" class="btn login-btn d-none d-lg-block">Back to Home</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar End -->
+    <!-- Main Content Start -->
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-10 col-xl-10 text-center p-0 mt-3 mb-2">
+          <div class="card px-0 pt-2 pb-0 mt-3 mb-3 glass-box">
+            <div class="welcome-container">
+              <h1 id="step-title" style="font-family: 'Playball', cursive; color: #d63384; font-size: 2.5rem;">
+                💜 Hey There! 💙
+              </h1>
+              <p id="step-description" style="font-size: 1.1rem; color: #555;">
+                Time for a little self-care check-in! ✨  
+                This fun and friendly test will help you reflect on how you're feeling.💖  
+              </p>
+              <img src="{{ url_for('static', filename='images/robot.gif') }}" alt="cute animation" class="sticker" style="width: 60px; height: auto; margin-bottom: -10px; margin-top: -10px;">
+            </div>
+            <form id="msform">
+              <ul id="progressbar">
+                <li class="active" id="account"><strong>Start</strong></li>
+                <li id="personal-info"><strong>Personal Info</strong></li>
+                <li id="lifestyle"><strong>Lifestyle</strong></li>
+                <li id="stress"><strong>Stress</strong></li>
+                <li id="confirm"><strong>Finish</strong></li>
+              </ul>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+              <fieldset>
+                <div class="form-card glass-box">
+                  <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/loop.gif') }}" alt="Background Image" class="background-image">
+                  </div>
+                </div>
+                <input type="button" name="next" class="next action-button" value="Start" />
+              </fieldset>
+              <fieldset>
+                <div class="form-card glass-box">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Personal Info ✨:</h2>
+                    </div>
+                    <div class="col-5">
+                      <h2 class="steps">  Step 2 - 5</h2>
+                    </div>
+                  </div>
+                  <label class="fieldlabels">Enter Full Name: </label>
+                  <input type="text" name="fname" placeholder="Full Name" required />
+                  <label class="fieldlabels">Gender: </label>
+                  <select name="Gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                  <label class="fieldlabels">Age Group: </label>
+                  <select name="Age Range" required>
+                    <option value="">Select Age Group</option>
+                    <option value="<18"><18</option>
+                    <option value="18-24">18-24</option>
+                    <option value="25-34">25-34</option>
+                    <option value="35-44">35-44</option>
+                    <option value="45-54">45-54</option>
+                    <option value="55-64">55-64</option>
+                    <option value="65+">65+</option>
+                  </select>
+                  <label class="fieldlabels">Location: </label>
+                  <select name="Location" required>
+                    <option value="">Select Location</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  </select>
+                  <label class="fieldlabels">Sector: </label>
+                  <select name="Sector" required class="custom-select">
+                    <option value="" disabled selected>Select your sector</option>
+                    <option value="Hospitality & Culinary">Hospitality & Culinary</option>
+                    <option value="Education & Training">Education & Training</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Business & Consulting">Business & Consulting</option>
+                    <option value="Accounting & Finance">Accounting & Finance</option>
+                    <option value="Pharmaceuticals">Pharmaceuticals</option>
+                    <option value="Skilled Trades & Electrical">Skilled Trades & Electrical</option>
+                    <option value="IT & Software">IT & Software</option>
+                    <option value="Data Science & AI">Data Science & AI</option>
+                    <option value="Sales & Retail">Sales & Retail</option>
+                    <option value="Marketing & Advertising">Marketing & Advertising</option>
+                    <option value="Entrepreneurship & Startups">Entrepreneurship & Startups</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Student">Student</option>
+                    <option value="Entertainment & Journalism">Entertainment & Journalism</option>
+                    <option value="Construction & Civil Engineering">Construction & Civil Engineering</option>
+                    <option value="Management & Operations">Management & Operations</option>
+                    <option value="Architecture & Urban Planning">Architecture & Urban Planning</option>
+                    <option value="Engineering & Manufacturing">Engineering & Manufacturing</option>
+                    <option value="Healthcare & Medicine">Healthcare & Medicine</option>
+                    <option value="Customer Service & Support">Customer Service & Support</option>
+                    <option value="Legal & Judiciary">Legal & Judiciary</option>
+                    <option value="Aviation & Aerospace">Aviation & Aerospace</option>
+                    <option value="Design & Creative (UI/UX)">Design & Creative (UI/UX)</option>
+                    <option value="Travel & Tourism">Travel & Tourism</option>
+                    <option value="Market Research & Analysis">Market Research & Analysis</option>
+                    <option value="Banking & Investment">Banking & Investment</option>
+                    <option value="Public Administration & Government">Public Administration & Government</option>
+                    <option value="Skilled Trades & Plumbing">Skilled Trades & Plumbing</option>
+                    <option value="Design & Creative">Design & Creative</option>
+                    <option value="Scientific Research & Development">Scientific Research & Development</option>
+                  </select>
+                  <label class="fieldlabels">Have you ever had suicidal thoughts?: </label>
+                  <select name="Have you ever had suicidal thoughts ?" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  <label class="fieldlabels">Family History of Mental Illness: </label>
+                  <select name="Family History of Mental Illness" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  <img src="{{ url_for('static', filename='images/download.gif') }}" alt="heart" style="width: 120px; filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));">
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+              </fieldset>
+              <fieldset>
+                <div class="form-card glass-box">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Lifestyle ✨:</h2>
+                    </div>
+                    <div class="col-5">
+                      <h2 class="steps">💡 Step 3 - 5</h2>
+                    </div>
+                  </div>
+                  <label class="fieldlabels">Working Professional or Student: </label>
+                  <select name="Working Professional or Student" required class="custom-select">
+                    <option value="" disabled selected>Select your profession</option>
+                    <option value="Student">Student</option>
+                    <option value="Working Professional">Working Professional</option>
+                  </select>
+                  <label class="fieldlabels">Degree: </label>
+                  <select name="Degree" required>
+                    <option value="">Select Degree</option>
+                    <option value="Hospitality & Tourism">Hospitality & Tourism</option>
+                    <option value="Law & Judiciary">Law & Judiciary</option>
+                    <option value="Pharmacy & Medicine">Pharmacy & Medicine</option>
+                    <option value="Business & Management">Business & Management</option>
+                    <option value="Computer Science & IT">Computer Science & IT</option>
+                    <option value="Accounts & Commerce">Accounts & Commerce</option>
+                    <option value="Arts & Humanities">Arts & Humanities</option>
+                    <option value="Engineering & Technology">Engineering & Technology</option>
+                    <option value="Architecture & Design">Architecture & Design</option>
+                    <option value="Other Fields">Other Fields</option>
+                    <option value="Education & Teaching">Education & Teaching</option>
+                    <option value="High School">High School</option>
+                    <option value="PhD & Research">PhD & Research</option>
+                    <option value="Entertainment & Media">Entertainment & Media</option>
+                    <option value="Healthcare & Nursing">Healthcare & Nursing</option>
+                    <option value="Sports & Fitness">Sports & Fitness</option>
+                    <option value="Agriculture & Farming">Agriculture & Farming</option>
+                  </select>
+                  <label class="fieldlabels">GPA (if applicable): </label>
+                  <select name="GPA" required>
+                    <option value="">Select GPA</option>
+                    <option value="1-5">1-5</option>
+                    <option value="6-8">6-8</option>
+                    <option value="8-9">8-9</option>
+                    <option value="9-10">9-10</option>
+                  </select>
+                  <label class="fieldlabels">How many hours of sleep do you get daily? 🌼</label>
+                  <select name="Sleep Duration" required class="custom-select">
+                    <option value="" disabled selected>Select your sleeping hours</option>
+                    <option value="1-3 hours">1-3 hours</option>
+                    <option value="4-6 hours">4-6 hours</option>
+                    <option value="7+ hours">7+ hours</option>
+                  </select>
+                  <label class="fieldlabels">How many hours do you work/study daily? 📚💼</label>
+                  <select name="Work/Study Hours" required class="custom-select">
+                    <option value="" disabled selected>Select your working hours</option>
+                    <option value="0-3 hours">0-3 hours</option>
+                    <option value="3-5 hours">3-5 hours</option>
+                    <option value="5-8 hours">5-8 hours</option>
+                    <option value="8-12+ hours">8-12+ hours</option>
+                  </select>
+                  <label class="fieldlabels">Dietary Habits: </label>
+                  <select name="Dietary Habits" required>
+                    <option value="">Select</option>
+                    <option value="Healthy">Healthy</option>
+                    <option value="Unhealthy">Unhealthy</option>
+                    <option value="Moderate">Moderate</option>
+                  </select>
+                  <label class="fieldlabels">Financial Difficulty (Scale 1-5): </label>
+                  <select name="Financial Difficulty" required class="custom-select">
+                    <option value="" disabled selected>Select level</option>
+                    <option value="1">1 👍👍</option>
+<option value="2">2 👍</option>
+<option value="3">3 </option>
+<option value="4">4 👎</option>
+<option value="5">5 👎👎</option>
+
+                  </select>
+                  <img src="{{ url_for('static', filename='images/Tired Good Night Sticker by ACHTUNG.gif') }}" alt="heart" class="sticker">
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+              </fieldset>
+              <fieldset>
+                <div class="form-card glass-box">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Stress & Satisfaction ✨:</h2>
+                    </div>
+                    <div class="col-5">
+                      <h2 class="steps"> Step 4 - 5</h2>
+                    </div>
+                  </div>
+                  <label class="fieldlabels">Academic Stress (Scale 1-5): </label>
+                  <select name="Academic Stress" required class="custom-select">
+                    <option value="" disabled selected>Select level</option>
+                    <option value="1">1 🟢🟢</option>
+<option value="2">2 🟢</option>
+<option value="3">3 🟡 (Moderate)</option>
+<option value="4">4 🟠</option>
+<option value="5">5 🔴🔴</option>
+                  </select>
+                  <label class="fieldlabels">Academic Satisfaction (Scale 1-5): </label>
+                  <select name="Academic Satisfaction" required class="custom-select">
+                    <option value="" disabled selected>Select level</option>
+                    <option value="1">1 🔴🔴</option>
+                    <option value="2">2 🔴</option>
+                    <option value="3">3 🟡</option>
+                    <option value="4">4 🟢</option>
+                    <option value="5">5 🟢🟢</option>                    
+                  </select>
+                  <label class="fieldlabels">Job Satisfaction (Scale 1-5): </label>
+                  <select name="Job Satisfaction" required class="custom-select">
+                    <option value="" disabled selected>Select level</option>
+                    <option value="1">1 🔴🔴</option>
+                    <option value="2">2 🔴</option>
+                    <option value="3">3 🟡</option>
+                    <option value="4">4 🟢</option>
+                    <option value="5">5 🟢🟢</option>                    
+                  </select>
+                  <label class="fieldlabels">Work Stress (Scale 1-5): </label>
+                  <select name="Work Stress" required class="custom-select">
+                    <option value="" disabled selected>Select level</option>
+                    <option value="1">1 🟢🟢</option>
+<option value="2">2 🟢</option>
+<option value="3">3 🟡 (Moderate)</option>
+<option value="4">4 🟠</option>
+<option value="5">5 🔴🔴</option>
+                  </select>
+                  <img src="{{ url_for('static', filename='images/Valentines Day Love Sticker by Emoji.gif') }}" alt="heart" class="sticker">
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+              </fieldset>
+              <fieldset>
+                <div class="form-card glass-box">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Finish ✨:</h2>
+                    </div>
+                    <div class="col-5">
+                      <h2 class="steps">💡 Step 5 - 5</h2>
+                    </div>
+                  </div>
+                  <br><br>
+                  <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2>
+                  <br>
+                  <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/tick.gif') }}" class="fit-image small-gif">
+                    <br><br>
+                    <h5 class="purple-text">See, we are done successfully!</h5>
+                    <img src="{{ url_for('static', filename='images/Mother Nature Yes Sticker by Nora Fikse.gif') }}" alt="heart" class="sticker">
+                  </div>
+                  <input type="button" name="submit" class="next action-button" value="Submit" id="submitBtn" />
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay-box" id="overlayBox">
+      <p class="bold-text">🍁 Please wait a few seconds...🌼</p>
+      <h3 class="bold-text">Do you know? </h3>
+      <p id="factText"></p>
+      <img src="https://em-content.zobj.net/thumbs/240/apple/354/light-bulb_1f4a1.png" 
+           alt="lightbulb" class="sticker" style="width: 100px; height: auto;">
+    </div>
+    <div class="result-box" id="resultBox">
+      <h3 class="bold-text">Mindmetrics has analyzed your inputs and here’s what we found:</h3>
+      <div id="resultContent" style="overflow-y: auto; max-height: 52vh; padding: 10px;">
+        <p id="resultText"></p>
+        <div style="text-align: center; margin-top: 15px;">
+          <img src="{{ url_for('static', filename='images/3D.gif') }}" alt="3D Sticker" style="width: 200px;">
+        </div>
+        <div id="tipsBox" style="margin-top: 20px;"></div>
+        <div id="improvementBox" style="margin-top: 20px;"></div>
+        <div id="noticeBox" style="margin-top: 20px; text-align: center; font-family: Arial, sans-serif; font-size: 14px; color: #555;">
+          <p style="display: block; margin: 0 auto; max-width: 80%;"><strong>Always Remember:</strong> This is just a prediction. Things can change, so take care of yourself!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
