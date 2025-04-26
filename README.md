@@ -1,1 +1,1 @@
-# MINDMETRICS-Full-Stack-ML-Powerhouse-Mental-Health-Awareness
+# MINDMETRICS-Full-Stack-ML-Mental-Health-Awareness
