@@ -1,0 +1,767 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+p {
+    color: grey;
+}
+/*** Navbar Styling ***/
+.nav-bar {
+    background: var(--bs-light);
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    position: relative;
+    height: 65px; /* Adjusted height */
+  }
+  body, html {
+    height: 100%;
+    margin: 0;
+    background: radial-gradient(200% 100% at bottom center,#F7F7B6,#E96F92,#4d3652,#121c33); 
+    background: radial-gradient(220% 105% at top center,#141e32 10%,#613e68 40%,#E96F92 65%,#F7F7B6); 
+    background-attachment: fixed;
+    color: white;
+  }
+  body {
+    overflow: hidden;
+  }
+  .content-wrapper {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 17px; /* space for the scrollbar */
+    box-sizing: content-box;
+  }
+  .nav-bar {
+    background-color: white;
+  }
+  .overlay-box {
+    display: none;
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+    color: black;
+  }
+  .bold-text {
+    font-weight: bold;
+    color: black;
+  }
+  .sticker {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+  }
+  @keyframes rotate {
+    0% {
+      transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+    } 
+    100% {
+      transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+    } 
+  }
+  .stars {
+    transform: perspective(500px);
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 0;
+    perspective-origin: 50% 100%;
+    left: 50%;
+    animation: rotate 90s infinite linear;
+  }
+  .star {
+    width: 2px;
+    height: 2px;
+    background: #eeeee9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0 -300px;
+    transform: translate3d(0,0,-300px);
+    backface-visibility: hidden;
+  }
+  .navbar {
+    height: 65px; /* Ensuring navbar height */
+    align-items: center;
+  }
+  
+  /* Logo Image */
+  .logo-img {
+    height: 50px; /* Adjust logo size */
+  }
+  
+  /* Navbar Links */
+  .navbar .navbar-nav .nav-link {
+    padding: 8px 10px; /* Adjusted padding for alignment */
+    font-weight: 600;
+    font-size: 18px;
+    transition: .5s;
+    line-height: 65px; /* Aligning text with navbar height */
+  }
+  
+  .navbar .navbar-nav .nav-link:hover,
+  .navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+  }
+  
+  /* Dropdown Styling */
+  .navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  
+  @media (min-width: 1200px) {
+      .navbar .nav-item .dropdown-menu {
+          display: block;
+          visibility: hidden;
+          top: 100%;
+          transform: rotateX(-75deg);
+          transform-origin: 0% 0%;
+          transition: .5s;
+          opacity: 0;
+      }
+      
+      .navbar .nav-item:hover .dropdown-menu {
+          transform: rotateX(0deg);
+          visibility: visible;
+          opacity: 1;
+      }
+  }
+  
+  .dropdown .dropdown-menu a:hover {
+      background: var(--bs-primary);
+      color: var(--bs-white);
+  }
+  .slider-output {
+    color: black;
+}
+/* Existing result-box styles remain unchanged */
+.result-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  margin: 20px auto;
+}
+
+/* Input styles with 3D effect */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 2px solid #d63384; /* Pinkish-purple border */
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.05); /* 3D shadow */
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #333;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #ff85a2; /* Lighter pink on focus */
+  box-shadow: 0 6px 12px rgba(214, 51, 132, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  outline: none;
+  transform: translateY(-2px); /* Slight lift for 3D effect */
+}
+
+/* Ensure dropdowns look consistent */
+select {
+  appearance: none; /* Remove default arrow */
+  background: url('data:image/svg+xml;utf8,<svg fill="%23d63384" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+  background-size: 20px;
+  padding-right: 30px; /* Space for custom arrow */
+}
+
+/* Tips box styles remain unchanged */
+#tipsBox.depressed {
+  background: linear-gradient(135deg, #ffcccc, #ff9999);
+  border: 2px solid #ff6666;
+  box-shadow: 0 4px 8px rgba(255, 102, 102, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  color: #333;
+}
+
+#tipsBox.not-depressed {
+  background: linear-gradient(135deg, #ccffcc, #99ff99);
+  border: 2px solid #66cc66;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+  padding: 15px;
+  border-radius: 10px;
+  color: #333;
+}
+
+#improvementBox {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  color: #333;
+}
+/* Input and select styles with gradients and 3D effect */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 3px solid #ff69b4; /* Hot pink border */
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffccff, #e6e6fa); /* Pink to lavender gradient */
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.4), inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Stronger 3D shadow */
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #4b0082; /* Indigo text */
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #ff1493; /* Deep pink on focus */
+  background: linear-gradient(135deg, #ffe6f3, #d8bfd8); /* Lighter gradient on focus */
+  box-shadow: 0 8px 16px rgba(255, 20, 147, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px); /* More pronounced lift */
+  outline: none;
+}
+
+/* Custom dropdown arrow */
+select {
+  appearance: none;
+  background: linear-gradient(135deg, #ffccff, #e6e6fa) url('data:image/svg+xml;utf8,<svg fill="%23ff69b4" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+  background-size: auto, 20px;
+  padding-right: 35px;
+}
+
+/* Style dropdown options */
+select option {
+  background: linear-gradient(135deg, #ffebff, #f0f0ff); /* Gradient for options */
+  color: #4b0082; /* Indigo text */
+  padding: 10px;
+  border-bottom: 1px solid #ff69b4; /* Pink separator */
+}
+
+select option:hover {
+  background: #ff69b4; /* Hot pink on hover */
+  color: #fff; /* White text on hover */
+}
+#noticeBox {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center; /* Reinforce centering */
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+    .result-box {
+      margin-top: 5%;
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      z-index: 1000;
+      text-align: center;
+      padding: 20px;
+    }
+    .bold-text {
+    font-weight: bold;
+    background: linear-gradient(76deg, #f40967, #4fafbc,#086cf9, #3b1e58, #8E44AD, #FF69B4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: playball;
+    font-size: 35px;
+}
+
+    .sticker {
+      width: 128px;
+      height: auto;
+      margin: 5px;
+    }
+    .result-box {
+    background: rgba(255, 255, 255, 0.746); /* Glass-like effect */
+    backdrop-filter: blur(10px); /* Blurry effect for depth */
+    border: 3px solid;
+    border-image: linear-gradient(76deg, #FFC0CB, #FFFACD, #ADD8E6, #E6E6FA, #DDA0DD) 1;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.result-box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(76deg, #FFFFFF, #FFFACD, #FFC0CB, #ADD8E6, #E6E6FA);
+}
+  #searchModal .modal-content {
+      background-color: rgba(255, 255, 255, .95);
+  }
+  /* Login Button */
+  .login-btn {
+    padding: 10px 25px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 50px;
+    border: 3px solid white;
+    background: linear-gradient(175deg, rgba(232, 23, 54, 0.464), rgba(73, 28, 65, 0.319), rgba(50, 50, 140, 0.807), rgba(255, 0, 0, 0.592));
+    color: rgb(249, 248, 248);
+    box-shadow: 0px 4px 10px rgba(139, 0, 0, 0.7);
+    transition: all 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    box-shadow: 0px 6px 15px rgba(139, 0, 0, 1);
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, rgba(232, 77, 77, 0.464), rgba(237, 235, 236, 0.319))
+  }
+  /*** Navbar End ***/
+  
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+#msform fieldset {
+    background: rgba(255, 255, 255, 0.277); /* More frosted glass effect */
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative; 
+}
+
+.form-card {
+    text-align: center;
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+#msform input, #msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #706d6d;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #ECEFF1;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: px solid #673AB7;
+    outline-width: 0;
+}
+
+#msform .action-button {
+    width: 150px; /* Same width for all buttons */
+    background: linear-gradient(45deg, #B0E0E6, #ADD8E6, #87CEEB, #87CEFA, #4682B4);
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 1.25rem;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background: linear-gradient(45deg, #4682B4, #87CEFA, #87CEEB, #ADD8E6, #B0E0E6);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+#msform .action-button-previous {
+    width: 150px; /* Same width for all buttons */
+    background: linear-gradient(45deg, #B0E0E6, #ADD8E6, #87CEEB, #87CEFA, #4682B4);
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 1.25rem;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background: linear-gradient(45deg, #4682B4, #87CEFA, #87CEEB, #ADD8E6, #B0E0E6);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    position: relative;
+    width: 100%; /* Increased width */
+    max-width: 1400px; /* Further increased max-width */
+    margin: auto; /* Center the card */
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #673AB7;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.purple-text {
+    color: #673AB7;
+    font-weight: normal;
+}
+
+.steps {
+    font-size: 25px;
+    font-weight: normal;
+    text-align: right;
+}
+
+.fieldlabels {
+    color: gray;
+    text-align: left;
+}
+
+.fieldlabels {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: block;
+    text-align: left;
+}
+
+.slider {
+    width: 100%;
+    margin: 10px 0;
+}
+
+input[type="text"], select, .slider {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+
+#progressbar {
+    margin-bottom: 0px;
+    overflow: hidden;
+    color: rgb(119, 118, 118);
+}
+
+#progressbar .active {
+    color: #5a2ca8;
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 20%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f13e"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f030"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #673AB7
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar {
+    background-color: rgba(9, 220, 76, 0.667)
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+/* Welcome container style */
+.welcome-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.413); /* More frosted glass effect */
+    padding: 20px; /* Reduced padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; /* Further increased max-width */
+    width: 100%;
+    backdrop-filter: blur(25px); /* Increased blur for more frosted glass effect */
+}
+
+.welcome-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(76deg, #FFFFFF, #FFFACD, #FFC0CB, #add8e6e7, #5a226055);
+}
+
+/* Text Style */
+.welcome-container p {
+    color: #555;
+    font-size: 1rem; /* Reduced font size */
+    line-height: 1.4; /* Reduced line height */
+}
+
+/* Container for the image */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 800px; /* Adjusted height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the image covers the container area */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Center the text over the image */
+.center-text {
+    position: absolute;
+    color: rgb(1, 1, 1);
+    font-size: 2em; /* Adjusted font size */
+    font-family: 'Arial', sans-serif; /* Change the font-family to your preferred font */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional: adds shadow for better readability */
+}
+.small-gif {
+  width: 80px;
+  height: 80px;
+}
+/* Center the content of the fieldset */
+.form-card {
+  margin-top: 30px;
+    text-align: center;
+    margin-left: 80px;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center align items horizontally */
+}
+
+/* Ensure the row displays its children inline */
+.form-card .row {
+  margin-left: -170px;
+  display: flex;
+  width: 100%;
+}
+/* Style for steps */
+.steps {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4CAF50; /* Different color */
+}
+
+.fs-title {
+  font-size: 1.5rem;
+  color: #673AB7;
+}
+.fieldlabels {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: block;
+    text-align: left; /* Start from the left */
+    width: 100%; /* Ensure full width */
+}
+
+    /* Glass effect box */
+    .glass-box {
+      background: rgba(255, 255, 255, 0.514);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 20px;
+      width: 80%; /* Increased width */
+      overflow: hidden; /* Prevent overflow */
+      display: flex; /* Added to center align */
+      flex-direction: column; /* Added to center align */
+      justify-content: center; /* Added to center align */
+    }
+/* General button styling */
+.action-button,
+.action-button-previous {
+  width: 150px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Special button styling */
+.special-button {
+  width: auto;
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+    /* Button styling with light pastel colors, white border, and black shadow */
+    .action-button {
+      background: linear-gradient(45deg, #B0E0E6, #ADD8E6, #87CEEB, #87CEFA, #4682B4);
+      border: 3px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 1.25rem;
+      border-radius: 50px;
+      padding: 10px 20px;
+      margin: 10px;
+      transition: all 0.3s ease;
+      width: 150px; /* Same width for all buttons */
+    }
+
+    .action-button:hover {
+      background: linear-gradient(45deg, #4682B4, #87CEFA, #87CEEB, #ADD8E6, #B0E0E6);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .action-button-previous {
+      background: linear-gradient(45deg, #B0E0E6, #ADD8E6, #87CEEB, #87CEFA, #4682B4);
+      border: 3px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 1.25rem;
+      border-radius: 50px;
+      padding: 10px 20px;
+      margin: 10px;
+      transition: all 0.3s ease;
+      width: 150px; /* Same width for all buttons */
+    }
+
+    .action-button-previous:hover {
+      background: linear-gradient(45deg, #4682B4, #87CEFA, #87CEEB, #ADD8E6, #B0E0E6);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* Progress bar styling */
+    .progress-bar {
+      background: linear-gradient(45deg, #1b3256, #1e2079, #6c8fd6, #e9ddbe, #e47474);
+    }
+
+    /* Image styling */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 180px; /* Reduced height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Ensures the image covers the container area */
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Added shadow */
+      border-radius: 10px; /* Optional: adds rounded corners */
+    }
+
+    /* Center the text over the image */
+    .center-text {
+      position: absolute;
+      color: rgb(1, 1, 1);
+      font-size: 2em; /* Adjusted font size */
+      font-family: 'Arial', sans-serif; /* Change the font-family to your preferred font */
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional: adds shadow for better readability */
+    }
+   
